@@ -1,6 +1,7 @@
 import React from "react";
 import Search from "../components/Search";
 import Cake from "../components/Cake";
+import AddCake from "../components/AddCake";
 
 class CakesList extends React.Component {
   constructor() {
@@ -22,12 +23,13 @@ class CakesList extends React.Component {
       });
   }
   filterCakes = input => {
+    console.log(input);
     const filteredCakes = this.state.cakesList.filter(cake => {
       return cake.title.includes(input);
     });
-    this.setState({ cakeList: filteredCakes });
+    this.setState({ cakesList: filteredCakes });
   };
-  onchange = event => {
+  onChange = event => {
     const inputValue = event.target.value;
     this.filterCakes(inputValue);
   };
@@ -35,6 +37,7 @@ class CakesList extends React.Component {
     return (
       <div>
         <Search onChange={this.onChange} />
+        <AddCake />
         {this.state.cakesList.map((cake, index) => {
           // return <Cake title={cake.title} desc={cake.disc} image{cake.image} />
           return <Cake key={index} {...cake} />;
