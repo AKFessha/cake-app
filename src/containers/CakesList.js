@@ -22,6 +22,7 @@ class CakesList extends React.Component {
         });
       });
   }
+
   filterCakes = input => {
     console.log(input);
     const filteredCakes = this.state.cakesList.filter(cake => {
@@ -29,6 +30,13 @@ class CakesList extends React.Component {
     });
     this.setState({ cakesList: filteredCakes });
   };
+
+  addCake = (title, desc) => {
+    const cakesList = this.state.cakesList;
+    cakesList.push({ title, desc });
+    this.setState({ cakesList });
+  };
+
   onChange = event => {
     const inputValue = event.target.value;
     this.filterCakes(inputValue);
@@ -37,7 +45,7 @@ class CakesList extends React.Component {
     return (
       <div>
         <Search onChange={this.onChange} />
-        <AddCake />
+        <AddCake addCake={this.addCake} />
         {this.state.cakesList.map((cake, index) => {
           // return <Cake title={cake.title} desc={cake.disc} image{cake.image} />
           return <Cake key={index} {...cake} />;
