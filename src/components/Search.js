@@ -3,7 +3,7 @@ const Search = props => {
   return (
     <div>
       <h2>This are the list of cakes for now </h2>
-      <span> Search cake by name: </span>
+      <span> Search cakes by name: </span>
       <input type="text" placeholder="Search......" onChange={props.onChange} />
     </div>
   );

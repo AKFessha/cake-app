@@ -7,7 +7,8 @@ class CakesList extends React.Component {
   constructor() {
     super();
     this.state = {
-      cakesList: []
+      cakesList: [],
+      displayedCakes: []
     };
 
     fetch(
@@ -18,17 +19,17 @@ class CakesList extends React.Component {
       })
       .then(serverCakes => {
         this.setState({
-          cakesList: serverCakes
+          cakesList: serverCakes,
+          displayedCakes: serverCakes
         });
       });
   }
 
   filterCakes = input => {
-    console.log(input);
     const filteredCakes = this.state.cakesList.filter(cake => {
-      return cake.title.includes(input);
+      return cake.title.includes(input) || cake.desc.includes(input);
     });
-    this.setState({ cakesList: filteredCakes });
+    this.setState({ displayedCakes: filteredCakes });
   };
 
   addCake = (title, desc) => {
@@ -46,7 +47,7 @@ class CakesList extends React.Component {
       <div>
         <Search onChange={this.onChange} />
         <AddCake addCake={this.addCake} />
-        {this.state.cakesList.map((cake, index) => {
+        {this.state.displayedCakes.map((cake, index) => {
           // return <Cake title={cake.title} desc={cake.disc} image{cake.image} />
           return <Cake key={index} {...cake} />;
         })}
