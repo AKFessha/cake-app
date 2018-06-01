@@ -31,7 +31,7 @@ class AddCake extends React.Component {
           id="title"
           name="title"
           placeholder="Title..."
-          onChange={this.handleInput.bind(this, "title")}
+          onChange={event => this.handleInput("title", event)}
         />
 
         <label> Description: </label>
@@ -39,7 +39,7 @@ class AddCake extends React.Component {
           type="text"
           id="desc"
           placeholder="Description.."
-          onChange={this.handleInput.bind(this, "desc")}
+          onChange={event => this.handleInput("desc", event)}
         />
         <button onClick={this.onClick} type="submit">
           Add cake

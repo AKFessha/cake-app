@@ -35,7 +35,9 @@ class CakesList extends React.Component {
   addCake = (title, desc) => {
     const cakesList = this.state.cakesList;
     cakesList.push({ title, desc });
-    this.setState({ cakesList });
+    this.setState({
+      displayedCakes: cakesList
+    });
   };
 
   onChange = event => {
