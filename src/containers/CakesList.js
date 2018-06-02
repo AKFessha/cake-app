@@ -2,6 +2,7 @@ import React from "react";
 import Search from "../components/Search";
 import Cake from "../components/Cake";
 import AddCake from "../components/AddCake";
+import Footer from "../components/Footer";
 
 class CakesList extends React.Component {
   constructor() {
@@ -53,6 +54,7 @@ class CakesList extends React.Component {
           // return <Cake title={cake.title} desc={cake.disc} image{cake.image} />
           return <Cake key={index} {...cake} />;
         })}
+        <Footer />
       </div>
     );
   }
