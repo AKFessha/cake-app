@@ -9,15 +9,13 @@ class AddCake extends React.Component {
     };
   }
 
-  handleInput = (type, e) => {
-    e.preventDefault();
-    const newState = {};
-    newState[type] = e.target.value;
-    this.setState(newState);
+  handleInput = (type, event) => {
+    event.preventDefault();
+    this.setState({ [type]: event.target.value });
   };
 
-  onClick = e => {
-    e.preventDefault();
+  onClick = event => {
+    event.preventDefault();
     this.props.addCake(this.state.title, this.state.desc);
   };
   render() {
