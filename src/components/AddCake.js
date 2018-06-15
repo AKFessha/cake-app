@@ -17,6 +17,10 @@ class AddCake extends React.Component {
   onClick = event => {
     event.preventDefault();
     this.props.addCake(this.state.title, this.state.desc);
+    var titleInput = document.querySelector("#title");
+    var descInput = document.querySelector("#desc");
+    titleInput.value = "";
+    descInput.value = "";
   };
   render() {
     return (
